@@ -1,5 +1,5 @@
 == About ==
-converttousrbin.sh converts package archives with files in /bin, /sbin or /usr/sbin into package archives with these files in /usr/bin instead.
+converttousrbin.sh converts Arch Linux package archives with files in /bin, /sbin or /usr/sbin into package archives with these files in /usr/bin instead.
 
 Note that if the package has files with identical names in more than one *bin directory, this conversion will not work (probably). i.e. original package has "/bin/do-a-thing" and "/usr/sbin/do-a-thing" for some reason, the script will hopefully terminate when it tries to move them both into /usr/bin. In such an event, you're on your own.
 
