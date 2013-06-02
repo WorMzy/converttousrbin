@@ -1,0 +1,35 @@
+== About ==
+converttousrbin.sh converts package archives with files in /bin, /sbin or /usr/sbin to a package archives with these files in /usr/bin instead.
+
+Note that if the package has files with identical names in more than one *bin directory, this conversion will not work (probably). i.e. original package has "/bin/do-a-thing" and "/usr/sbin/do-a-thing" for some reason, the script will hopefully terminate when it tries to move them both into /usr/bin.
+
+Also note that this is a dirty hacky workaround, and that updating or rebuilding problematic packages is far more preferable.
+
+Don't blame me if it doesn't work and/or does something it's not supposed to.
+
+If you use a different package extension to the default *.pkg.tar.xz, you'll need to modify the script to account for this.
+
+
+== How to use ==
+
+1) Place script in a (preferably empty) directory.
+2) Copy problematic package into the same directory os the script.
+3a) cd into the same directory as the script (if you aren't already in there).
+3b) Ensure that the script is executable
+3c) Run ./converttousrbin.sh
+4) Install the converted packages (# pacman -U *usrbinmove*)
+
+
+== Example ==
+
+$ mkdir ~/toconvert
+$ mv converttousrbin.sh ~/toconvert
+$ cp /var/cache/pacman/pkg/{v4l-utils-0.9.5-1-x86_64.pkg.tar.xz,wpa_supplicant-2.0-3-x86_64.pkg.tar.xz} ~/builds/razercfg-git/razercfg-git-20130427-1-any.pkg.tar.xz ~/toconvert
+$ cd ~/toconvert
+$ chmod +x converttousrbin.sh
+$ ./converttousrbin.sh
+razercfg done
+v4l done
+wpa_supplicant done
+All done. Now install with pacman -U *usrbinmove*
+$ sudo pacman -U *usrbinmove*
