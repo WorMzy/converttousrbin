@@ -13,9 +13,9 @@ If you use a different package extension to the default *.pkg.tar.xz, you'll nee
 == How to use ==
 
 1) Place script in a (preferably empty) directory.
-2) Copy problematic package into the same directory os the script.
+2) Copy problematic package into the same directory as the script.
 3a) cd into the same directory as the script (if you aren't already in there).
-3b) Ensure that the script is executable
+3b) Ensure that the script is executable.
 3c) Run ./converttousrbin.sh
 4) Install the converted packages (# pacman -U *usrbinmove*)
 
